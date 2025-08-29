@@ -1,0 +1,6 @@
+services:
+  evently.api:
+    image: ${DOCKER_REGISTRY-}eventlyapi
+    build:
+      context: .
+      dockerfile: src/API/Evently.API/Dockerfile

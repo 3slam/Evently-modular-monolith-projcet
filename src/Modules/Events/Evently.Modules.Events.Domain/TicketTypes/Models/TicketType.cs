@@ -1,5 +1,8 @@
 ﻿using Evently.Common.Domain.BaseEntity;
 using Evently.Modules.Events.Domain.Events.Models;
+using Evently.Modules.Events.Domain.TicketTypes.DomainEvents;
+
+namespace Evently.Modules.Events.Domain.TicketTypes.Models;
 
 public sealed class TicketType : Entity
 {
@@ -22,7 +25,7 @@ public sealed class TicketType : Entity
         var ticketType = new TicketType
         {
             Id = Guid.NewGuid(),
-            EventId = @event.Id,
+            EventId = @event == null ? throw new ArgumentNullException(nameof(@event)) : @event.Id,
             Name = name,
             Price = price,
             Currency = currency,
