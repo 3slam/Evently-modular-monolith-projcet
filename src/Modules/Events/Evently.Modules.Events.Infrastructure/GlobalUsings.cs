@@ -1,0 +1,14 @@
+﻿global using Evently.Modules.Events.Domain.TicketTypes.Models;
+global using Evently.Modules.Events.Domain.TicketTypes.Repository;
+global using Evently.Modules.Events.Infrastructure.Database;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.Configuration;
+global using Evently.Modules.Events.Domain.Categories.Models;
+global using Evently.Modules.Events.Domain.Events.Models;
+global using Evently.Modules.Events.Domain.Events.Repository;
+global using Evently.Modules.Events.Domain.Categories.Repository;
+global using Evently.Modules.Events.Infrastructure.Categories;
+global using Evently.Modules.Events.Infrastructure.Events;
+global using Evently.Modules.Events.Infrastructure.Repository;
+global using Microsoft.EntityFrameworkCore.Migrations;

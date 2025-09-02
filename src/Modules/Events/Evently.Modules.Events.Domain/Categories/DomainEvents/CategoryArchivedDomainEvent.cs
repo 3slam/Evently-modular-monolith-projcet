@@ -6,3 +6,4 @@ public sealed class CategoryArchivedDomainEvent : DomainEvent
 {
     public required Guid CategoryId { get; init; }
 }
+ 
