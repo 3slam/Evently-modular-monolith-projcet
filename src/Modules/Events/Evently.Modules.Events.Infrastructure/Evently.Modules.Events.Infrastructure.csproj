@@ -22,7 +22,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Evently.Modules.Events.Application\Evently.Modules.Events.Application.csproj" />
-    <ProjectReference Include="..\Evently.Modules.Events.Domain\Evently.Modules.Events.Domain.csproj" />
   </ItemGroup>
 
 </Project>

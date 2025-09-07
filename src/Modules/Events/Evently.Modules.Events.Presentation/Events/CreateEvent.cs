@@ -23,7 +23,7 @@ internal class CreateEvent
             var result = await sender.Send(command);
 
             return result;
-        }).RequireAuthorization()
+        })
           .WithName(nameof(CreateEvent))
           .WithTags("Events");
     }
