@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Routing;
 
 namespace Evently.Modules.Events.Presentation.Events;
 
-internal class CreateEvent
+internal sealed class CreateEvent
 {
     public static void MapCreateEvent(IEndpointRouteBuilder app)
     {

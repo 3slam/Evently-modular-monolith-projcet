@@ -8,5 +8,6 @@ public static class EventsEndpoints
     public static void MapEndpoints(this IEndpointRouteBuilder app)
     {
         CreateEvent.MapCreateEvent(app);
+        GetEvent.MapGetEvent(app);
     }
 }
