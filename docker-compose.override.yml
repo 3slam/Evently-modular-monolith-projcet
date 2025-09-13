@@ -22,4 +22,4 @@ services:
     ports: 
       - "5432:5432"
     volumes:
-    - ./.containers/dbdata:/var/lib/postgresql/data
+    - ./.containers/eventlydbdata:/var/lib/postgresql/data
