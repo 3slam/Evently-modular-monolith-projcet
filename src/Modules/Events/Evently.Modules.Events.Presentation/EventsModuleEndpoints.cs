@@ -1,4 +1,5 @@
 ﻿using Evently.Modules.Events.Presentation.Categories;
+using Evently.Modules.Events.Presentation.TicketTypes;
 
 namespace Evently.Modules.Events.Presentation;
 
@@ -8,6 +9,7 @@ public static class EventsModuleEndpoints
     {
         MapEventEndpoints(app);
         MapCategoryEndpoints(app);
+        MapTicketTypeEndpoints(app);
     }
 
     private static void MapEventEndpoints(IEndpointRouteBuilder app)
@@ -27,5 +29,13 @@ public static class EventsModuleEndpoints
         new CreateCategory().Map(app);
         new UpdateCategory().Map(app);
         new ArchiveCategory().Map(app);
+    }
+
+    private static void MapTicketTypeEndpoints(IEndpointRouteBuilder app)
+    {
+        new GetTicketTypes().Map(app);
+        new GetTicketType().Map(app);
+        new CreateTicketType().Map(app);
+        new UpdateTicketTypePrice().Map(app);
     }
 }

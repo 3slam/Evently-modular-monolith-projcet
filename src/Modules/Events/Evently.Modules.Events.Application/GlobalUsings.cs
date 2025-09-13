@@ -9,3 +9,6 @@ global using MediatR;
 global using Evently.Common.Domain.Clock;
 global using Evently.Modules.Events.Domain.Categories.Models;
 global using Evently.Modules.Events.Domain.Categories.Repository;
+
+global using Evently.Modules.Events.Domain.TicketTypes.Repository;
+global using Evently.Modules.Events.Domain.TicketTypes.Models;
