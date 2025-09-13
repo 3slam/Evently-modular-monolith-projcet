@@ -29,9 +29,7 @@ dbContext.Database.Migrate();
 
 
 app.UseHttpsRedirection();
+
+EventsModuleEndpoints.Map(app);
  
-EventsEndpoints.MapEndpoints(app);
-
-
-
 app.Run();
