@@ -7,3 +7,5 @@ global using Evently.Modules.Events.Domain.Events.Repository;
 global using FluentValidation;
 global using MediatR;
 global using Evently.Common.Domain.Clock;
+global using Evently.Modules.Events.Domain.Categories.Models;
+global using Evently.Modules.Events.Domain.Categories.Repository;

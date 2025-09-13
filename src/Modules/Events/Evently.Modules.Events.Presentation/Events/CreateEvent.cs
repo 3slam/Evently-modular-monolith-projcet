@@ -1,14 +1,10 @@
 ﻿using Evently.Modules.Events.Application.Events.CreateEvent;
-using MediatR;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Routing;
 
 namespace Evently.Modules.Events.Presentation.Events;
 
-internal sealed class CreateEvent
+internal sealed class CreateEvent : IEndpoint
 {
-    public static void MapCreateEvent(IEndpointRouteBuilder app)
+    public void Map(IEndpointRouteBuilder app)
     {
         app.MapPost("events", async (CreateEventRequest request, ISender sender) =>
         {
@@ -21,11 +17,10 @@ internal sealed class CreateEvent
                 request.EndsAtUtc);
 
             var result = await sender.Send(command);
+            return result.IsSuccess ? Results.Ok(result) : Results.BadRequest(result.Error);
 
-            return result;
-        })
-          .WithName(nameof(CreateEvent))
-          .WithTags("Events");
+        }).WithName(EventEndpointMetadata.CancelEvent)
+          .WithTags(EventEndpointMetadata.Tag);
     }
 
     internal sealed record CreateEventRequest(

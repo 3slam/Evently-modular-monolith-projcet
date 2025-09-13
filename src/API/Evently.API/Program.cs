@@ -10,7 +10,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options => options.SwaggerDoc("v1", new OpenApiInfo { Title = "Evently API", Version = "v1" }));
 
-EventsModuleServiceRegister.AddEventsModule(builder.Services, builder.Configuration);
+
+CommonModuleServiceRegister.Register(builder.Services, builder.Configuration);
+EventsModuleServiceRegister.Register(builder.Services, builder.Configuration);
 
 var app = builder.Build();
 
@@ -18,7 +20,7 @@ app.UseSwagger();
 app.UseSwaggerUI(options =>
 {
     options.SwaggerEndpoint("/swagger/v1/swagger.json", "Evently API V1");
-    options.RoutePrefix = string.Empty;
+    options.RoutePrefix = "/swagger";
 });
  
 using var scope = app.Services.CreateScope();

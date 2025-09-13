@@ -12,4 +12,6 @@ public static class CategoryErrors
     public static readonly Error AlreadyArchived = Error.Problem(
         "Categories.AlreadyArchived",
         "The category was already archived");
+
+    public static Error Validation(string? message) => Error.Problem("Categories.Validation", message ?? "Error while validating the request");
 }

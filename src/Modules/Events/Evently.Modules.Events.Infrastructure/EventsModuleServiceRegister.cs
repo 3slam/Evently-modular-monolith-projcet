@@ -1,14 +1,13 @@
-﻿using Evently.Modules.Events.Application.Abstraction.Data;
-using Evently.Modules.Events.Application.Events;
-using Evently.Modules.Events.Application.Events.CreateEvent;
+﻿using Evently.Modules.Events.Application;
+using Evently.Modules.Events.Application.Abstraction.Data;
 using FluentValidation;
- 
+
 
 namespace Evently.Modules.Events.Infrastructure;
 
 public static class EventsModuleServiceRegister
 {
-    public static IServiceCollection AddEventsModule(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection Register(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddInfrastructure(configuration);
 

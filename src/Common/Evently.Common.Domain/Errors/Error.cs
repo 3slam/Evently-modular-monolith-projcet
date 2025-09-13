@@ -10,6 +10,8 @@ public record Error(string Code, string Description, ErrorType Type)
     public static Error Problem(string code, string description) => new(code, description, ErrorType.Problem);
     public static Error Conflict(string code, string description) => new(code, description, ErrorType.Conflict);
     public static Error Authorization(string code, string description) => new(code, description, ErrorType.Authorization);
+
+    public static Error Validation(string code, string description) => new(code, description, ErrorType.Validation);
 }
 
 public enum ErrorType

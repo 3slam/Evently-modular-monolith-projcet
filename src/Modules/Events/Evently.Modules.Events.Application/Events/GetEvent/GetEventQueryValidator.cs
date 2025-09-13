@@ -1,7 +1,12 @@
-﻿namespace Evently.Modules.Events.Application.Events.CancelEvent;
+﻿using Evently.Modules.Events.Application.Events.GetEvent;
 
-internal sealed class GetEventQueryValidator : AbstractValidator<CancelEventCommand>
+namespace Evently.Modules.Events.Application.Events.CancelEvent;
+
+public sealed class GetEventQueryValidator : AbstractValidator<GetEventQuery>
 {
-   public GetEventQueryValidator() => RuleFor(x => x.EventId).NotEmpty();
+   public GetEventQueryValidator()
+   {
+        RuleFor(x => x.EventId).NotEmpty();
+   }
     
 }

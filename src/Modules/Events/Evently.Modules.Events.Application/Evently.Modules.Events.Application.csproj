@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+	  
     <PackageReference Include="FluentValidation" Version="12.0.0" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.0.0" />
     <PackageReference Include="MediatR" Version="13.0.0" />
@@ -14,13 +15,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Evently.Modules.Events.Domain\Evently.Modules.Events.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Events\GetEvents\" />
-    <Folder Include="Events\PublishEvent\" />
-    <Folder Include="Events\RescheduleEvent\" />
-    <Folder Include="Events\SearchEvents\" />
   </ItemGroup>
 
 </Project>

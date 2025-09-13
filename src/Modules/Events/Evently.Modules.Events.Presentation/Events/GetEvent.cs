@@ -1,28 +1,18 @@
-﻿using Evently.Modules.Events.Application.Events.GetEvents;
-using MediatR;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Routing;
+﻿using Evently.Modules.Events.Application.Events.GetEvent;
 
 namespace Evently.Modules.Events.Presentation.Events;
 
-internal static class GetEvent
+internal class GetEvent : IEndpoint
 {
-    public static void MapGetEvent(IEndpointRouteBuilder app)
+    public void Map(IEndpointRouteBuilder app)
     {
         app.MapGet("events/{eventId}", async (Guid eventId, ISender sender) =>
         {
             var result = await sender.Send(new GetEventQuery(eventId));
+            return result.IsSuccess ? Results.Ok(result) : Results.BadRequest(result.Error);
 
-            if (result.IsSuccess)
-            {
-                return Results.Ok(result.Value);
-            }
-            else
-            { 
-                return Results.NotFound(result.Error); 
-            }
-        });
+        })
+          .WithTags(EventEndpointMetadata.Tag)
+          .WithName(EventEndpointMetadata.GetEvent);
     }
-    
 }

@@ -1,6 +1,5 @@
 services:
   evently.api:
-    container_name: Evently.API
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=8080
@@ -16,7 +15,6 @@ services:
 
   evently.database:
     image: postgres:latest
-    container_name: Evently.Database
     environment:
       - POSTGRES_DB=evently
       - POSTGRES_USER=postgres
@@ -24,4 +22,4 @@ services:
     ports: 
       - "5432:5432"
     volumes:
-    - ./.containers/evently-db:/var/lib/postgresql/data
+    - ./.containers/evently-postgresql:/var/lib/postgresql/data
