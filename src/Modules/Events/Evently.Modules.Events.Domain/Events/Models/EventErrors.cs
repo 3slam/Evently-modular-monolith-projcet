@@ -17,4 +17,6 @@ public static class EventErrors
     public static readonly Error AlreadyCancelled = Error.Problem("Events.AlreadyCanceled", "The event was already canceled");
 
     public static readonly Error AlreadyStarted = Error.Problem("Events.AlreadyStarted", "The event has already started");
+
+    public static Error NotValid(string? message) => Error.Problem("Events.Validation", message ?? "Error while validating the request");
 }
