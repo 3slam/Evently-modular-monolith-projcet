@@ -1,9 +1,7 @@
 using Evently.API.Extensions;
 using Evently.Common.Application;
 using Evently.Modules.Events.Infrastructure;
-using Evently.Modules.Events.Infrastructure.Database;
 using Evently.Modules.Events.Presentation;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using EventsApplicationAssemblyReference = Evently.Modules.Events.Application.ApplicationAssemblyReference;
 
@@ -25,13 +23,9 @@ app.UseSwaggerUI(options =>
 {
     options.SwaggerEndpoint("/swagger/v1/swagger.json", "Evently API V1");
     options.RoutePrefix = string.Empty;
+    app.ApplyMigrations();
 });
  
-using var scope = app.Services.CreateScope();
-var dbContext = scope.ServiceProvider.GetRequiredService<EventsDbContext>();
-dbContext.Database.Migrate();
-
-
 app.UseHttpsRedirection();
 
 EventsModuleEndpoints.Map(app);
