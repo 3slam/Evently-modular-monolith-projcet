@@ -1,4 +1,3 @@
-using Evently.Common.Domain.Endpoints;
 using Evently.Modules.Events.Application.Events.PublishEvent;
 
 namespace Evently.Modules.Events.Presentation.Events;

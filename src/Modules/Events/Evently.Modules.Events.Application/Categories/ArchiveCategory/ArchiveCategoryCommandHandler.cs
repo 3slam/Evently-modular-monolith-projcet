@@ -1,4 +1,3 @@
-
 namespace Evently.Modules.Events.Application.Categories.ArchiveCategory;
 
 public sealed class ArchiveCategoryCommandHandler(

@@ -1,5 +1,4 @@
-using Evently.Modules.Events.Application.Abstraction.Data;
-
+using Evently.Common.Application.Abstraction.Data;
 namespace Evently.Modules.Events.Infrastructure.Database;
 
 public sealed class EventsDbContext(DbContextOptions<EventsDbContext> options) : DbContext(options), IUnitOfWork

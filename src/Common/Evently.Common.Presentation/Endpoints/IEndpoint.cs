@@ -2,7 +2,7 @@
 
 using Microsoft.AspNetCore.Routing;
 
-namespace Evently.Common.Domain.Endpoints;
+namespace Evently.Common.Presentation.Endpoints;
 
 public interface IEndpoint
 {

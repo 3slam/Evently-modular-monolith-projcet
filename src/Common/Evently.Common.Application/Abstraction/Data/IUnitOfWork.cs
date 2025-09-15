@@ -1,4 +1,4 @@
-﻿namespace Evently.Modules.Events.Application.Abstraction.Data;
+﻿namespace Evently.Common.Application.Abstraction.Data;
 
 public interface IUnitOfWork
 {

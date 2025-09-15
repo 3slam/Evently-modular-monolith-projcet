@@ -1,7 +1,4 @@
-﻿using Evently.Modules.Events.Application;
-using Evently.Modules.Events.Application.Abstraction.Data;
-using FluentValidation;
-
+﻿using Evently.Common.Application.Abstraction.Data;
 
 namespace Evently.Modules.Events.Infrastructure;
 
@@ -10,11 +7,7 @@ public static class EventsModuleServiceRegister
     public static IServiceCollection Register(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddInfrastructure(configuration);
-
-        services.AddMediatR(configuration => configuration.RegisterServicesFromAssembly(ApplicationAssemblyReference.Assembly));
-        services.AddValidatorsFromAssembly(ApplicationAssemblyReference.Assembly);
-      
-
+ 
         return services;
     }
  

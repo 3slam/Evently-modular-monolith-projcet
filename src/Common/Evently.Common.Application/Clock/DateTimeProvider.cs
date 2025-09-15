@@ -1,5 +1,5 @@
 ﻿ 
-namespace Evently.Common.Domain.Clock;
+namespace Evently.Common.Application.Clock;
 
 public interface IDateTimeProvider
 {

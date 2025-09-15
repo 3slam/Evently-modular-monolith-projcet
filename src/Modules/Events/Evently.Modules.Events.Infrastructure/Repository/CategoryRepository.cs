@@ -1,7 +1,3 @@
-using Evently.Modules.Events.Domain.Categories.Models;
-using Evently.Modules.Events.Domain.Categories.Repository;
-using Microsoft.EntityFrameworkCore;
-
 namespace Evently.Modules.Events.Infrastructure.Categories;
 
 internal sealed class CategoryRepository(EventsDbContext db) : ICategoryRepository
