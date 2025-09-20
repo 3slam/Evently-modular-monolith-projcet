@@ -12,3 +12,4 @@ global using Evently.Modules.Events.Domain.Categories.Repository;
 global using Evently.Modules.Events.Domain.TicketTypes.Repository;
 global using Evently.Modules.Events.Domain.TicketTypes.Models;
 global using Evently.Common.Application.Abstraction.Data;
+global using Evently.Common.Application.Messaging;

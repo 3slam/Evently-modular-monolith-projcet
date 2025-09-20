@@ -1,9 +1,11 @@
+using Evently.Common.Application.Messaging;
+
 namespace Evently.Modules.Events.Application.Categories.ArchiveCategory;
 
 public sealed class ArchiveCategoryCommandHandler(
     IUnitOfWork unitOfWork,
     ICategoryRepository categoryRepository,
-    IValidator<ArchiveCategoryCommand> validator): IRequestHandler<ArchiveCategoryCommand, Result<CategoryResponse>>
+    IValidator<ArchiveCategoryCommand> validator): ICommandHandler<ArchiveCategoryCommand,CategoryResponse>
 {
     public async Task<Result<CategoryResponse>> Handle(ArchiveCategoryCommand request, CancellationToken cancellationToken)
     {

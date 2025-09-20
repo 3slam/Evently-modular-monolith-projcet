@@ -2,7 +2,7 @@ namespace Evently.Modules.Events.Application.Categories.GetCategory;
 
 public sealed class GetCategoryQueryHandler(
     ICategoryRepository categoryRepository,
-    IValidator<GetCategoryQuery> validator): IRequestHandler<GetCategoryQuery, Result<CategoryResponse>>
+    IValidator<GetCategoryQuery> validator): IQueryHandler<GetCategoryQuery, CategoryResponse>
 {
     public async Task<Result<CategoryResponse>> Handle(GetCategoryQuery request, CancellationToken cancellationToken)
     {

@@ -3,7 +3,7 @@ namespace Evently.Modules.Events.Application.Categories.UpdateCategory;
 public sealed class UpdateCategoryCommandHandler(
     IUnitOfWork unitOfWork,
     ICategoryRepository categoryRepository,
-    IValidator<UpdateCategoryCommand> validator) : IRequestHandler<UpdateCategoryCommand, Result<CategoryResponse>>
+    IValidator<UpdateCategoryCommand> validator) : ICommandHandler<UpdateCategoryCommand, CategoryResponse>
 {
     public async Task<Result<CategoryResponse>> Handle(UpdateCategoryCommand request, CancellationToken cancellationToken)
     {

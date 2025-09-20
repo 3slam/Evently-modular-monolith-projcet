@@ -3,11 +3,13 @@ using Evently.Common.Application;
 using Evently.Modules.Events.Infrastructure;
 using Evently.Modules.Events.Presentation;
 using Microsoft.OpenApi.Models;
+using Serilog;
 using EventsApplicationAssemblyReference = Evently.Modules.Events.Application.ApplicationAssemblyReference;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
+builder.Host.UseSerilog((context, loggerConfig) => loggerConfig.ReadFrom.Configuration(context.Configuration));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options => options.SwaggerDoc("v1", new OpenApiInfo { Title = "Evently API", Version = "v1" }));
 
@@ -27,6 +29,7 @@ app.UseSwaggerUI(options =>
 });
  
 app.UseHttpsRedirection();
+app.UseSerilogRequestLogging();
 
 EventsModuleEndpoints.Map(app);
  

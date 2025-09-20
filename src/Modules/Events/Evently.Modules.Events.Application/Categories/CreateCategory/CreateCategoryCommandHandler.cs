@@ -4,7 +4,7 @@ namespace Evently.Modules.Events.Application.Categories.CreateCategory;
 public sealed class CreateCategoryCommandHandler(
     IUnitOfWork unitOfWork,
     ICategoryRepository categoryRepository,
-    IValidator<CreateCategoryCommand> validator): IRequestHandler<CreateCategoryCommand, Result<CategoryResponse>>
+    IValidator<CreateCategoryCommand> validator): ICommandHandler<CreateCategoryCommand, CategoryResponse>
 {
     public async Task<Result<CategoryResponse>> Handle(CreateCategoryCommand request, CancellationToken cancellationToken)
     {
