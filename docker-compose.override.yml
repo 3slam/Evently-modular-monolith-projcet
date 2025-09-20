@@ -23,3 +23,10 @@ services:
       - "5432:5432"
     volumes:
     - ./.containers/eventlydbdata:/var/lib/postgresql/data
+
+  evently.seq:
+     image: datalust/seq:latest
+     ports:
+       - "5341:5341"
+     environment:
+       - ACCEPT_EULA=Y
