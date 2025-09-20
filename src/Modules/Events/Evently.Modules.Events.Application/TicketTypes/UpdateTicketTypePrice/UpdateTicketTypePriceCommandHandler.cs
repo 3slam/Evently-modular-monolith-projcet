@@ -3,7 +3,7 @@ namespace Evently.Modules.Events.Application.TicketTypes.UpdateTicketTypePrice;
 public sealed class UpdateTicketTypePriceCommandHandler(
     IUnitOfWork unitOfWork,
     ITicketTypeRepository ticketTypeRepository,
-    IValidator<UpdateTicketTypePriceCommand> validator) : IRequestHandler<UpdateTicketTypePriceCommand, Result<TicketTypeResponse>>
+    IValidator<UpdateTicketTypePriceCommand> validator) : ICommandHandler<UpdateTicketTypePriceCommand,TicketTypeResponse>
 {
     public async Task<Result<TicketTypeResponse>> Handle(UpdateTicketTypePriceCommand request, CancellationToken cancellationToken)
     {

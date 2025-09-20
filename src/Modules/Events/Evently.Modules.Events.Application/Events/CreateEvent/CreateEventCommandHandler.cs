@@ -3,7 +3,7 @@
 public sealed class CreateEventCommandHandler(
     IUnitOfWork unitOfWork,
     IEventRepository eventRepository,
-    IValidator<CreateEventCommand> validator) : IRequestHandler<CreateEventCommand, Result<EventResponse>>
+    IValidator<CreateEventCommand> validator) : ICommandHandler<CreateEventCommand, EventResponse>
 {
     public async Task<Result<EventResponse>> Handle(CreateEventCommand request, CancellationToken cancellationToken)
     {

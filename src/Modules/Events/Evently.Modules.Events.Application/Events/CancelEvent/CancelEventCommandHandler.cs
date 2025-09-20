@@ -4,7 +4,7 @@ internal sealed class CancelEventCommandHandler(
     IUnitOfWork unitOfWork,
     IEventRepository eventRepository,
     IDateTimeProvider dateTimeProvider,
-    IValidator<CancelEventCommand> validator) : IRequestHandler<CancelEventCommand, Result<EventResponse>>
+    IValidator<CancelEventCommand> validator) : ICommandHandler<CancelEventCommand, EventResponse>
 {
     public async Task<Result<EventResponse>> Handle(CancelEventCommand request, CancellationToken cancellationToken)
     {

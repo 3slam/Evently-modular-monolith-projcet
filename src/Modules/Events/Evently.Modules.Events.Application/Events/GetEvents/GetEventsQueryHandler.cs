@@ -1,7 +1,7 @@
 namespace Evently.Modules.Events.Application.Events.GetEvents;
 
 internal sealed class GetEventsQueryHandler(IEventRepository eventRepository) 
-    : IRequestHandler<GetEventsQuery, Result<IReadOnlyCollection<EventResponse>>>
+    : IQueryHandler<GetEventsQuery, IReadOnlyCollection<EventResponse>>
 {
  
     public async Task<Result<IReadOnlyCollection<EventResponse>>> Handle(GetEventsQuery request, CancellationToken cancellationToken)

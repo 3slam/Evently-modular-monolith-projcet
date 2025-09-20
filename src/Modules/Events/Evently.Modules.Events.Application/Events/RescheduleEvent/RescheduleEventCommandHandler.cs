@@ -1,7 +1,7 @@
 namespace Evently.Modules.Events.Application.Events.RescheduleEvent;
 
 internal sealed class RescheduleEventCommandHandler(
-    IEventRepository eventRepository , IUnitOfWork unitOfWork) : IRequestHandler<RescheduleEventCommand, Result<EventResponse>>
+    IEventRepository eventRepository , IUnitOfWork unitOfWork) : ICommandHandler<RescheduleEventCommand, EventResponse>
 {
     public async Task<Result<EventResponse>> Handle(RescheduleEventCommand request, CancellationToken cancellationToken)
     {

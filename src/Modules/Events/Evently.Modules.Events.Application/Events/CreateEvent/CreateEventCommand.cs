@@ -6,5 +6,4 @@ public sealed record CreateEventCommand(
     string Description,
     string Location,
     DateTime StartsAtUtc,
-    DateTime? EndsAtUtc) : IRequest<Result<EventResponse>>;
- 
+    DateTime? EndsAtUtc) : ICommand<EventResponse>;

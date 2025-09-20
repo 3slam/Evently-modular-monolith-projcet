@@ -1,7 +1,7 @@
 namespace Evently.Modules.Events.Application.TicketTypes.GetTicketType;
 
 public sealed class GetTicketTypeQueryHandler(ITicketTypeRepository ticketTypeRepository) 
-    : IRequestHandler<GetTicketTypeQuery, Result<TicketTypeResponse>>
+    : IQueryHandler<GetTicketTypeQuery, TicketTypeResponse>
 {
     public async Task<Result<TicketTypeResponse>> Handle(GetTicketTypeQuery request, CancellationToken cancellationToken)
     {

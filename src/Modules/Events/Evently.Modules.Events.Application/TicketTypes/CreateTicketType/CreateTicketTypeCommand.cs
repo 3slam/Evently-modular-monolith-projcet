@@ -5,4 +5,4 @@ public sealed record CreateTicketTypeCommand(
     string Name,
     decimal Price,
     string Currency,
-    decimal Quantity) : IRequest<Result<TicketTypeResponse>>;
+    decimal Quantity) : ICommand<TicketTypeResponse>;

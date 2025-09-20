@@ -4,7 +4,7 @@ public sealed class CreateTicketTypeCommandHandler(
     IUnitOfWork unitOfWork,
     ITicketTypeRepository ticketTypeRepository,
     IEventRepository eventRepository,
-    IValidator<CreateTicketTypeCommand> validator) : IRequestHandler<CreateTicketTypeCommand, Result<TicketTypeResponse>>
+    IValidator<CreateTicketTypeCommand> validator) : ICommandHandler<CreateTicketTypeCommand, TicketTypeResponse>
 {
     public async Task<Result<TicketTypeResponse>> Handle(CreateTicketTypeCommand request, CancellationToken cancellationToken)
     {
