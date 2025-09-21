@@ -10,6 +10,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AspNetCore.HealthChecks.NpgSql" Version="9.0.0" />
+    <PackageReference Include="AspNetCore.HealthChecks.Redis" Version="9.0.0" />
+    <PackageReference Include="AspNetCore.HealthChecks.UI" Version="9.0.0" />
+    <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="9.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.8">
       <PrivateAssets>all</PrivateAssets>
@@ -21,8 +25,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Evently.Common.Application\Evently.Common.Application.csproj" />
+    <ProjectReference Include="..\..\Common\Evently.Common.Infrastructure\Evently.Common.Infrastructure.csproj" />
     <ProjectReference Include="..\..\Modules\Events\Evently.Modules.Events.Infrastructure\Evently.Modules.Events.Infrastructure.csproj" />
     <ProjectReference Include="..\..\Modules\Events\Evently.Modules.Events.Presentation\Evently.Modules.Events.Presentation.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="HealthChecks\" />
   </ItemGroup>
 
 </Project>

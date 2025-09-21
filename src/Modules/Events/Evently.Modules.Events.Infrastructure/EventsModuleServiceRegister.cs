@@ -22,8 +22,8 @@ public static class EventsModuleServiceRegister
                     npgsqlOptions => npgsqlOptions
                         .MigrationsHistoryTable(HistoryRepository.DefaultTableName, "Events")));
 
-        services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<EventsDbContext>());
 
+        services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<EventsDbContext>());
         services.AddScoped<IEventRepository, EventRepository>();
         services.AddScoped<ITicketTypeRepository, TicketTypeRepository>();
         services.AddScoped<ICategoryRepository, CategoryRepository>();

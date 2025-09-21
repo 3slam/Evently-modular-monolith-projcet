@@ -1,5 +1,6 @@
 services:
   evently.api:
+    container_name: Evently.Api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=8080
@@ -14,6 +15,7 @@ services:
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
 
   evently.database:
+    container_name: Evently.Database
     image: postgres:latest
     environment:
       - POSTGRES_DB=evently
@@ -25,11 +27,20 @@ services:
     - ./.containers/eventlydbdata:/var/lib/postgresql/data
 
   evently.seq:
+    container_name: Evently.Seq
     image: datalust/seq:latest
     ports:
       - "5341:5341"    
       - "8082:80"      
     environment:
       - ACCEPT_EULA=Y
+      - SEQ_FIRSTRUN_NOAUTHENTICATION=true
     volumes:
-      - ./.containers/seq:/data    
+      - ./.containers/seq:/data   
+  evently.cache:
+    container_name: Evently.Cache
+    image: redis:latest
+    ports:
+      - "1379:6379"
+    volumes:
+      - ./.containers/redisdata:/data
