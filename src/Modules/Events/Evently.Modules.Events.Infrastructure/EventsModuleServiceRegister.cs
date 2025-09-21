@@ -7,7 +7,6 @@ public static class EventsModuleServiceRegister
     public static IServiceCollection Register(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddInfrastructure(configuration);
- 
         return services;
     }
  

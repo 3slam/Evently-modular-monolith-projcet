@@ -2,6 +2,7 @@ using Evently.API.Extensions;
 using Evently.API.Middlewares;
 using Evently.Common.Application;
 using Evently.Common.Infrastructure;
+using Evently.Common.Presentation.Endpoints;
 using Evently.Modules.Events.Infrastructure;
 using Evently.Modules.Events.Presentation;
 using HealthChecks.UI.Client;
@@ -26,9 +27,10 @@ builder.Services.AddProblemDetails();
 // Common
 ApplicationServiceRegister.Register(builder.Services, [EventsApplicationAssemblyReference.Assembly]);
 InfrastructureServiceRegister.Register(builder.Services, builder.Configuration);
- 
+
 // Modules
 EventsModuleServiceRegister.Register(builder.Services, builder.Configuration);
+EventsModuleEndpoints.AddEndpoints(builder.Services);
 
 builder.Services
     .AddHealthChecks()
@@ -48,7 +50,8 @@ app.UseSwaggerUI(options =>
 app.UseHttpsRedirection();
 app.UseSerilogRequestLogging();
 
-EventsModuleEndpoints.Map(app);
+
+PresentationServiceRegister.MapEndpoints(app);
 
 app.MapHealthChecks("/health", new HealthCheckOptions
 {
