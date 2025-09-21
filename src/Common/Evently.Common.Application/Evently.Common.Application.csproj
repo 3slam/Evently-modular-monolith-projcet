@@ -16,10 +16,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Behaviour\" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <ProjectReference Include="..\Evently.Common.Domain\Evently.Common.Domain.csproj" />
 	</ItemGroup>
 	

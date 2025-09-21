@@ -1,4 +1,5 @@
-﻿using Evently.Common.Application.Clock;
+﻿using Evently.Common.Application.Behaviors;
+using Evently.Common.Application.Clock;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -12,10 +13,14 @@ public static class ApplicationServiceRegister
         IServiceCollection services ,
         Assembly[] assemblies)
     {
-
-        services.AddMediatR(configuration => configuration.RegisterServicesFromAssemblies(assemblies));
+        services.AddMediatR(configuration =>
+        {
+            configuration.RegisterServicesFromAssemblies(assemblies);
+            configuration.AddOpenBehavior(typeof(ValidationPipelineBehavior<,>));
+            configuration.AddOpenBehavior(typeof(RequestLoggingPipelineBehavior<,>));
+            configuration.AddOpenBehavior(typeof(ExceptionHandlingPipelineBehavior<,>));
+        });
         services.AddValidatorsFromAssemblies(assemblies);
-
         services.TryAddSingleton<IDateTimeProvider, DateTimeProvider>();
 
         return services; 

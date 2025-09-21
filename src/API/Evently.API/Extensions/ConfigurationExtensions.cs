@@ -6,8 +6,8 @@ public static class ConfigurationExtensions
     {
         foreach (var item in jsonFileNames)
         {
-            configuration.AddJsonFile($"module.{item}.json", optional: false, reloadOnChange: true);
-            configuration.AddJsonFile($"module.{item}.Development.json", optional: false, reloadOnChange: true);
+            configuration.AddJsonFile($"module.{item}.json", optional: true, reloadOnChange: true);
+            configuration.AddJsonFile($"module.{item}.Development.json", optional: true, reloadOnChange: true);
         }
     }
 }

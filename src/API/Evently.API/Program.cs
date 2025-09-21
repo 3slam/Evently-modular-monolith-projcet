@@ -1,4 +1,5 @@
 using Evently.API.Extensions;
+using Evently.API.Middlewares;
 using Evently.Common.Application;
 using Evently.Modules.Events.Infrastructure;
 using Evently.Modules.Events.Presentation;
@@ -14,6 +15,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options => options.SwaggerDoc("v1", new OpenApiInfo { Title = "Evently API", Version = "v1" }));
 
 builder.Configuration.AddConfiguration(["event"]);
+
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+builder.Services.AddProblemDetails();
 
 ApplicationServiceRegister.Register(builder.Services, [EventsApplicationAssemblyReference.Assembly]);
 EventsModuleServiceRegister.Register(builder.Services, builder.Configuration);

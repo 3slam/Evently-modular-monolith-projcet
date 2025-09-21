@@ -3,10 +3,11 @@ using MediatR;
 
 namespace Evently.Common.Application.Messaging;
 
-public interface ICommand : IRequest<Result>;
+public interface ICommand : IRequest<Result> , IBaseComman;
 
-public interface ICommand<TResponse> : IRequest<Result<TResponse>>;
+public interface ICommand<TResponse> : IRequest<Result<TResponse>> , IBaseComman;
 
+public interface IBaseComman;
 
 // Handlers
 public interface ICommandHandler<TCommand> 
