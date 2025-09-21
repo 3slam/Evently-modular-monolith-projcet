@@ -30,7 +30,7 @@ InfrastructureServiceRegister.Register(builder.Services, builder.Configuration);
 
 // Modules
 EventsModuleServiceRegister.Register(builder.Services, builder.Configuration);
-EventsModuleEndpoints.AddEndpoints(builder.Services);
+ 
 
 builder.Services
     .AddHealthChecks()

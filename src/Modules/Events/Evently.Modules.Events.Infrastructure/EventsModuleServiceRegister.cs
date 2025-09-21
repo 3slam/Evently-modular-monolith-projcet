@@ -1,5 +1,6 @@
 ﻿using Evently.Common.Application.Abstraction.Data;
-
+using Evently.Modules.Events.Presentation;
+using Evently.Common.Presentation.Endpoints;
 namespace Evently.Modules.Events.Infrastructure;
 
 public static class EventsModuleServiceRegister
@@ -7,6 +8,7 @@ public static class EventsModuleServiceRegister
     public static IServiceCollection Register(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddInfrastructure(configuration);
+        services.RegisterAllClassesThatImplementIEndpoint(EventsPresentationAssemblyReference.Assembly);
         return services;
     }
  
