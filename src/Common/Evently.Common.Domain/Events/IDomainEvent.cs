@@ -1,6 +1,8 @@
-﻿namespace Evently.Common.Domain.Events;
+﻿using MediatR;
 
-public interface IDomainEvent
+namespace Evently.Common.Domain.Events;
+
+public interface IDomainEvent : INotification
 {
     //identifier of the domain event itself used for event store, message bus, deduplication not realted  to the event module
     public Guid Id { get; init; } 

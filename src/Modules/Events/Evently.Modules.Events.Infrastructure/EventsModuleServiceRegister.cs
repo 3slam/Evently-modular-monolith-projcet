@@ -1,6 +1,7 @@
 ﻿using Evently.Common.Application.Abstraction.Data;
 using Evently.Modules.Events.Presentation;
 using Evently.Common.Presentation.Endpoints;
+using Evently.Common.Infrastructure.Interceptors;
 namespace Evently.Modules.Events.Infrastructure;
 
 public static class EventsModuleServiceRegister
@@ -21,7 +22,8 @@ public static class EventsModuleServiceRegister
                 .UseNpgsql(
                     databaseConnectionString,
                     npgsqlOptions => npgsqlOptions
-                        .MigrationsHistoryTable(HistoryRepository.DefaultTableName, "Events")));
+                        .MigrationsHistoryTable(HistoryRepository.DefaultTableName, "Events"))
+                .AddInterceptors(sp.GetRequiredService<CollectAndPublishDomainEventsInterceptor>()))  ;
 
 
         services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<EventsDbContext>());

@@ -1,4 +1,7 @@
 
+using Evently.Modules.Events.Domain.Categories.DomainEvents;
+using Evently.Modules.Events.Domain.Events.DomainEvents;
+
 namespace Evently.Modules.Events.Application.Categories.CreateCategory;
 
 public sealed class CreateCategoryCommandHandler(
@@ -17,5 +20,14 @@ public sealed class CreateCategoryCommandHandler(
 
         await unitOfWork.SaveChangesAsync(cancellationToken);
         return (CategoryResponse)category;
+    }
+}
+
+internal sealed class CreateCategoryDomainEventHandler : INotificationHandler<CategoryCreatedDomainEvent>
+{
+    public Task Handle(CategoryCreatedDomainEvent notification, CancellationToken cancellationToken)
+    {
+        Console.WriteLine("Category created" + notification.CategoryId , notification.Id , notification.OccurredAtUtc);
+        return Task.CompletedTask;
     }
 }
