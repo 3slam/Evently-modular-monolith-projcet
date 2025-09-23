@@ -28,6 +28,8 @@
     <ProjectReference Include="..\..\Common\Evently.Common.Infrastructure\Evently.Common.Infrastructure.csproj" />
     <ProjectReference Include="..\..\Modules\Events\Evently.Modules.Events.Infrastructure\Evently.Modules.Events.Infrastructure.csproj" />
     <ProjectReference Include="..\..\Modules\Events\Evently.Modules.Events.Presentation\Evently.Modules.Events.Presentation.csproj" />
+    <ProjectReference Include="..\..\Modules\Users\Evently.Modules.Users.Infrastructure\Evently.Modules.Users.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\Modules\Users\Evently.Modules.Users.Presentation\Evently.Modules.Users.Presentation.csproj" />
   </ItemGroup>
 
   <ItemGroup>
