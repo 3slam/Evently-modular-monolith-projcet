@@ -3,6 +3,8 @@ using Evently.Common.Infrastructure.Interceptors;
 using Evently.Modules.Users.Domain.Repository;
 using Evently.Modules.Users.Infrastructure.Data;
 using Evently.Modules.Users.Infrastructure.Repository;
+using Evently.Modules.Users.Presentation;
+using Evently.Common.Presentation.Endpoints;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.Extensions.Configuration;
@@ -15,7 +17,7 @@ public static class UsersModuleServiceRegister
     public static IServiceCollection Register(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddInfrastructure(configuration);
-       
+        services.RegisterAllClassesThatImplementIEndpoint(UsersPresentationAssemblyReference.Assembly);
         return services;
     }
 
@@ -31,9 +33,7 @@ public static class UsersModuleServiceRegister
                         .MigrationsHistoryTable(HistoryRepository.DefaultTableName, "Users"))
                 .AddInterceptors(sp.GetRequiredService<CollectAndPublishDomainEventsInterceptor>()));
 
-
         services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<UserDbContext>());
         services.AddScoped<IUserRepository, UserRepository>();
- 
     }
 }

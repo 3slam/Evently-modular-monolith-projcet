@@ -1,3 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+		<ProjectReference Include="..\..\..\Common\Evently.Common.Presentation\Evently.Common.Presentation.csproj" />
+		<ProjectReference Include="..\Evently.Modules.Users.Application\Evently.Modules.Users.Application.csproj" />
+	</ItemGroup>
+
 </Project>
