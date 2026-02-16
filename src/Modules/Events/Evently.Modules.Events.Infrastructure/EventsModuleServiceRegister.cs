@@ -22,7 +22,8 @@ public static class EventsModuleServiceRegister
                 .UseNpgsql(
                     databaseConnectionString,
                     npgsqlOptions => npgsqlOptions
-                        .MigrationsHistoryTable(HistoryRepository.DefaultTableName, "Events"))
+                        .MigrationsHistoryTable(HistoryRepository.DefaultTableName, "events"))
+                .UseSnakeCaseNamingConvention()
                 .AddInterceptors(sp.GetRequiredService<CollectAndPublishDomainEventsInterceptor>()))  ;
 
 

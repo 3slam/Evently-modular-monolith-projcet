@@ -24,7 +24,7 @@ services:
     ports: 
       - "5432:5432"
     volumes:
-    - ./.containers/eventlydbdata:/var/lib/postgresql/data
+    - ./.containers/eventlyAppdbdata:/var/lib/postgresql/data
 
   evently.seq:
     container_name: Evently.Seq

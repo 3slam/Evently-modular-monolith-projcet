@@ -1,8 +1,7 @@
 using Evently.Common.Application.Abstraction.Data;
+using Evently.Common.Infrastructure.Interceptors;
 using Evently.Modules.Ticketing.Presentation;
 using Evently.Common.Presentation.Endpoints;
-using Evently.Common.Infrastructure.Interceptors;
-
 namespace Evently.Modules.Ticketing.Infrastructure;
 
 public static class TicketingModuleServiceRegister

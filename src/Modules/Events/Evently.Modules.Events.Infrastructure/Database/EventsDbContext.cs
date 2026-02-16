@@ -11,6 +11,7 @@ public sealed class EventsDbContext(DbContextOptions<EventsDbContext> options) :
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.HasDefaultSchema("events");
         modelBuilder.Entity<Event>().HasOne<Category>().WithMany();
         modelBuilder.Entity<TicketType>()
             .HasOne<Event>()
