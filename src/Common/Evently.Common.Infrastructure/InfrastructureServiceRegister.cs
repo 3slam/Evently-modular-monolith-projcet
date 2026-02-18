@@ -14,6 +14,8 @@ public static class InfrastructureServiceRegister
         services.AddStackExchangeRedisCache(options => options.Configuration = configuration.GetConnectionString("Cache"));
         services.TryAddSingleton<ICacheService, CacheService>();
         services.TryAddSingleton<CollectAndPublishDomainEventsInterceptor>();
+        services.AddSingleton<CollectAndPublishDomainEventsInterceptor>();
+
         return services;
     }
 }

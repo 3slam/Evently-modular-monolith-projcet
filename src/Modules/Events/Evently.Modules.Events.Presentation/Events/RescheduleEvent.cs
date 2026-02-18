@@ -10,7 +10,7 @@ public class RescheduleEvent : IEndpoint
         {
             var command = new RescheduleEventCommand(request.EventId, request.StartsAtUtc, request.EndsAtUtc);
             var result = await sender.Send(command);
-            return result.IsSuccess ? Results.Ok() : Results.BadRequest(result.Error);
+            return result.IsSuccess ? Results.Ok(result) : Results.BadRequest(result.Error);
         })
         .WithName(EventEndpointMetadata.RescheduleEvent)
         .WithTags(EventEndpointMetadata.Tag);
