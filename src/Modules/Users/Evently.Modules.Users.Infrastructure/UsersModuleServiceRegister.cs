@@ -30,7 +30,7 @@ public static class UsersModuleServiceRegister
                 .UseNpgsql(
                     databaseConnectionString,
                     npgsqlOptions => npgsqlOptions
-                        .MigrationsHistoryTable(HistoryRepository.DefaultTableName, "Users"))
+                        .MigrationsHistoryTable(HistoryRepository.DefaultTableName, "users"))
                 .AddInterceptors(sp.GetRequiredService<CollectAndPublishDomainEventsInterceptor>()));
 
         services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<UserDbContext>());

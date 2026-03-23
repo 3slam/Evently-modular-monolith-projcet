@@ -1,4 +1,5 @@
 ﻿using Evently.Modules.Events.Infrastructure.Database;
+using Evently.Modules.Users.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace Evently.API.Extensions;
@@ -9,6 +10,7 @@ public static class MigrationExtensions
     {
         using var scope = app.Services.CreateScope();
         Migrate<EventsDbContext>(scope);
+        Migrate<UserDbContext>(scope);
     }
 
     private static void Migrate<T>(IServiceScope scope) where T : DbContext

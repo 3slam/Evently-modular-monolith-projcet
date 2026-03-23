@@ -10,6 +10,7 @@ public sealed class UserDbContext(DbContextOptions<UserDbContext> options) : DbC
     public DbSet<User> Users { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.HasDefaultSchema("users");
         modelBuilder.Entity<User>().HasKey(x => x.Id);
         base.OnModelCreating(modelBuilder);
     }

@@ -4,12 +4,15 @@ using Evently.Common.Application;
 using Evently.Common.Infrastructure;
 using Evently.Common.Presentation.Endpoints;
 using Evently.Modules.Events.Infrastructure;
+using Evently.Modules.Users.Application;
+using Evently.Modules.Users.Infrastructure;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using EventsApplicationAssemblyReference = Evently.Modules.Events.Application.ApplicationAssemblyReference;
- 
+using UsersApplicationAssemblyReference = Evently.Modules.Users.Application.ApplicationAssemblyReference;
+
 var builder = WebApplication.CreateBuilder(args);
 
 
@@ -26,12 +29,14 @@ builder.Services.AddProblemDetails();
 // Common
 ApplicationServiceRegister.Register(builder.Services, [
     EventsApplicationAssemblyReference.Assembly,
- 
+    UsersApplicationAssemblyReference.Assembly
 ]);
 InfrastructureServiceRegister.Register(builder.Services, builder.Configuration);
 
 // Modules
 EventsModuleServiceRegister.Register(builder.Services, builder.Configuration);
+UsersModuleServiceRegister.Register(builder.Services, builder.Configuration);
+
 
 builder.Services
     .AddHealthChecks()
