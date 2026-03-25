@@ -4,6 +4,7 @@ using Evently.Common.Application;
 using Evently.Common.Infrastructure;
 using Evently.Common.Presentation.Endpoints;
 using Evently.Modules.Events.Infrastructure;
+using Evently.Modules.Ticketing.Infrastructure;
 using Evently.Modules.Users.Application;
 using Evently.Modules.Users.Infrastructure;
 using HealthChecks.UI.Client;
@@ -35,8 +36,8 @@ InfrastructureServiceRegister.Register(builder.Services, builder.Configuration);
 
 // Modules
 EventsModuleServiceRegister.Register(builder.Services, builder.Configuration);
+TicketingModuleServiceRegister.Register(builder.Services, builder.Configuration);
 UsersModuleServiceRegister.Register(builder.Services, builder.Configuration);
-
 
 builder.Services
     .AddHealthChecks()
