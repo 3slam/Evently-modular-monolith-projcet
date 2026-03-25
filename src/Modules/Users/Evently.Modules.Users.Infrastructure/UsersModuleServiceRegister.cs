@@ -9,6 +9,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Evently.Modules.Users.UsersApi;
+using Evently.Modules.Users.Infrastructure.API;
 
 namespace Evently.Modules.Users.Infrastructure;
 
@@ -35,5 +37,6 @@ public static class UsersModuleServiceRegister
 
         services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<UserDbContext>());
         services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IUserApi, UserApi>();
     }
 }

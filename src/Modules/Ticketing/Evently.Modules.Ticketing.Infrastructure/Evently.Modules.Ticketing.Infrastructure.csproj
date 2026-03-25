@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
     <ProjectReference Include="..\..\..\Common\Evently.Common.Infrastructure\Evently.Common.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\Users\Evently.Modules.Users.UsersApi\Evently.Modules.Users.UsersApi.csproj" />
     <ProjectReference Include="..\Evently.Modules.Ticketing.Domain\Evently.Modules.Ticketing.Domain.csproj" />
     <ProjectReference Include="..\Evently.Modules.Ticketing.Presentation\Evently.Modules.Ticketing.Presentation.csproj" />
   </ItemGroup>

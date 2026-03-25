@@ -12,3 +12,5 @@ public interface ITicketRepository
     void Insert(Ticket ticket);
     void InsertRange(IEnumerable<Ticket> tickets);
 }
+
+ 
