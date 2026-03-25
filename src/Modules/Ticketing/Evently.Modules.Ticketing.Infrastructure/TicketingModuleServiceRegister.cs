@@ -1,6 +1,7 @@
 using Evently.Common.Application.Abstraction.Data;
 using Evently.Common.Infrastructure.Interceptors;
 using Evently.Common.Presentation.Endpoints;
+using Evently.Modules.Ticketing.Application.Carts;
 using Evently.Modules.Ticketing.Domain.Customers;
 using Evently.Modules.Ticketing.Domain.TicketsType;
 using Evently.Modules.Ticketing.Presentation;
@@ -31,5 +32,6 @@ public static class TicketingModuleServiceRegister
         services.AddScoped<ITicketRepository, TicketRepository>();
         services.AddScoped<ICustomerRepository, CustomerRepository>();
         services.AddScoped<ITicketTypeRepository, TicketTypeRepository>();
+        services.AddScoped<CartService>();
     }
 }
