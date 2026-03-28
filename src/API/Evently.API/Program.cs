@@ -26,8 +26,7 @@ builder.Configuration.AddConfiguration(["event"]);
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddProblemDetails();
  
-
-// Common
+ 
 ApplicationServiceRegister.Register(builder.Services, [
     EventsApplicationAssemblyReference.Assembly,
     UsersApplicationAssemblyReference.Assembly,
@@ -35,7 +34,6 @@ ApplicationServiceRegister.Register(builder.Services, [
 ]);
 InfrastructureServiceRegister.Register(builder.Services, builder.Configuration);
 
-// Modules
 EventsModuleServiceRegister.Register(builder.Services, builder.Configuration);
 TicketingModuleServiceRegister.Register(builder.Services, builder.Configuration);
 UsersModuleServiceRegister.Register(builder.Services, builder.Configuration);
